@@ -3,6 +3,8 @@
 import sys
 from workflow import Workflow3, ICON_WEB
 
+# from workflow.notify import notify
+
 __author__ = 'hua.xiao'
 
 
@@ -34,6 +36,7 @@ def main(wf):
     # Add an item to Alfred feedback
     current_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
     current_day_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+    current_day_time1 = time.strftime('%Y%m%d', time.localtime(time.time()))
     current_time_stamp = int(time.time())
     # wf.add_item(current_time, current_time_stamp)
     if query is None:
@@ -42,16 +45,22 @@ def main(wf):
                     arg=current_time_stamp,
                     valid=True,
                     icon=ICON_WEB)
-    elif query == 'stamp':
-        wf.add_item(title=current_time,
+    elif query == 't':
+        wf.add_item(title=current_time_stamp,
                     subtitle=current_time_stamp,
                     arg=current_time_stamp,
                     valid=True,
                     icon=ICON_WEB)
-    elif query == 'time':
-        wf.add_item(title=current_time,
-                    subtitle=current_time_stamp,
+    elif query == 'd1':
+        wf.add_item(title=current_day_time,
+                    subtitle=current_day_time,
                     arg=current_day_time,
+                    valid=True,
+                    icon=ICON_WEB)
+    elif query == 'd':
+        wf.add_item(title=current_day_time1,
+                    subtitle=current_day_time1,
+                    arg=current_day_time1,
                     valid=True,
                     icon=ICON_WEB)
 
